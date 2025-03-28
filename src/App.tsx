@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
 import './App.css';
 import GroupList from './components/GroupList';
-import { Group } from './types';
+import CreateGroupModal from './components/CreateGroupModal';
+import { Group, Member } from './types';
 
 function App() {
-  const [groups] = useState<Group[]>([]);
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const handleSelectGroup = (group: Group) => {
     console.log('Selected group:', group);
   };
 
   const handleCreateGroup = () => {
-    console.log('Create new group');
+    setShowCreateModal(true);
+  };
+
+  const handleCreateNewGroup = (name: string, members: Member[]) => {
+    const newGroup: Group = {
+      id: Date.now().toString(),
+      name,
+      members,
+      expenses: [],
+      createdAt: new Date().toISOString()
+    };
+    setGroups([...groups, newGroup]);
   };
 
   return (
@@ -25,6 +38,11 @@ function App() {
           groups={groups}
           onSelectGroup={handleSelectGroup}
           onCreateGroup={handleCreateGroup}
+        />
+        <CreateGroupModal
+          isOpen={showCreateModal}
+          onClose={() => setShowCreateModal(false)}
+          onCreateGroup={handleCreateNewGroup}
         />
       </main>
     </div>
