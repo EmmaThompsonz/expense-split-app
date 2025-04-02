@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import './App.css';
 import GroupList from './components/GroupList';
 import CreateGroupModal from './components/CreateGroupModal';
+import GroupDetail from './components/GroupDetail';
 import { Group, Member } from './types';
 
 function App() {
   const [groups, setGroups] = useState<Group[]>([]);
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState<Group | null>(null);
 
   const handleSelectGroup = (group: Group) => {
-    console.log('Selected group:', group);
+    setSelectedGroup(group);
   };
 
   const handleCreateGroup = () => {
@@ -34,11 +36,18 @@ function App() {
         <p>Split your bills with ease</p>
       </header>
       <main>
-        <GroupList 
-          groups={groups}
-          onSelectGroup={handleSelectGroup}
-          onCreateGroup={handleCreateGroup}
-        />
+        {selectedGroup ? (
+          <GroupDetail
+            group={selectedGroup}
+            onBack={() => setSelectedGroup(null)}
+          />
+        ) : (
+          <GroupList 
+            groups={groups}
+            onSelectGroup={handleSelectGroup}
+            onCreateGroup={handleCreateGroup}
+          />
+        )}
         <CreateGroupModal
           isOpen={showCreateModal}
           onClose={() => setShowCreateModal(false)}

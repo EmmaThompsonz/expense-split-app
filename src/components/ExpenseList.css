@@ -1,0 +1,76 @@
+.expense-list {
+  margin-top: 30px;
+}
+
+.expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.expense-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.empty-expenses {
+  text-align: center;
+  padding: 40px 20px;
+  color: #7f8c8d;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.expenses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expense-item {
+  background: white;
+  border: 1px solid #ecf0f1;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.expense-item:hover {
+  border-color: #bdc3c7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expense-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.expense-info {
+  flex: 1;
+}
+
+.expense-info h4 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.expense-details {
+  margin: 0 0 8px 0;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.split-info {
+  color: #95a5a6;
+  font-size: 12px;
+}
+
+.expense-amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #27ae60;
+  margin-left: 20px;
+}

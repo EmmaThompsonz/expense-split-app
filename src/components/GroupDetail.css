@@ -1,0 +1,74 @@
+.group-detail {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.group-detail-header {
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  padding: 5px 0;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.group-info h2 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 28px;
+}
+
+.group-stats {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.group-stats span {
+  margin: 0 8px;
+}
+
+.group-stats span:first-child {
+  margin-left: 0;
+}
+
+.members-summary {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.members-summary h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.member-card {
+  background: white;
+  border: 1px solid #ecf0f1;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.member-name {
+  font-weight: 500;
+}
