@@ -29,6 +29,13 @@ function App() {
     setGroups([...groups, newGroup]);
   };
 
+  const handleUpdateGroup = (updatedGroup: Group) => {
+    setGroups(groups.map(group => 
+      group.id === updatedGroup.id ? updatedGroup : group
+    ));
+    setSelectedGroup(updatedGroup);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,6 +47,7 @@ function App() {
           <GroupDetail
             group={selectedGroup}
             onBack={() => setSelectedGroup(null)}
+            onUpdateGroup={handleUpdateGroup}
           />
         ) : (
           <GroupList 

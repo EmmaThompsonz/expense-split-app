@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
-import { Group } from '../types';
+import { Group, Expense } from '../types';
 import ExpenseList from './ExpenseList';
+import AddExpenseModal from './AddExpenseModal';
 import './GroupDetail.css';
 
 interface GroupDetailProps {
   group: Group;
   onBack: () => void;
+  onUpdateGroup: (updatedGroup: Group) => void;
 }
 
-const GroupDetail: React.FC<GroupDetailProps> = ({ group, onBack }) => {
+const GroupDetail: React.FC<GroupDetailProps> = ({ group, onBack, onUpdateGroup }) => {
   const [showAddExpense, setShowAddExpense] = useState(false);
 
   const handleAddExpense = () => {
     setShowAddExpense(true);
+  };
+
+  const handleCreateExpense = (expenseData: Omit<Expense, 'id'>) => {
+    const newExpense: Expense = {
+      id: Date.now().toString(),
+      ...expenseData
+    };
+    
+    const updatedGroup = {
+      ...group,
+      expenses: [...group.expenses, newExpense]
+    };
+    
+    onUpdateGroup(updatedGroup);
   };
 
   const totalExpenses = group.expenses.reduce((sum, expense) => sum + expense.amount, 0);
@@ -48,6 +64,13 @@ const GroupDetail: React.FC<GroupDetailProps> = ({ group, onBack }) => {
         expenses={group.expenses}
         members={group.members}
         onAddExpense={handleAddExpense}
+      />
+
+      <AddExpenseModal
+        isOpen={showAddExpense}
+        members={group.members}
+        onClose={() => setShowAddExpense(false)}
+        onAddExpense={handleCreateExpense}
       />
     </div>
   );
