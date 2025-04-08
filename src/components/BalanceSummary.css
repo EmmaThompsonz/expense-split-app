@@ -1,0 +1,79 @@
+.balance-summary {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.balance-summary h3 {
+  margin: 0 0 15px 0;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.balances {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.balance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #ecf0f1;
+}
+
+.balance-item.positive {
+  border-left: 4px solid #27ae60;
+}
+
+.balance-item.negative {
+  border-left: 4px solid #e74c3c;
+}
+
+.member-name {
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.balance-amount {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.balance-item.positive .balance-amount {
+  color: #27ae60;
+}
+
+.balance-item.negative .balance-amount {
+  color: #e74c3c;
+}
+
+.settlements {
+  border-top: 1px solid #ecf0f1;
+  padding-top: 15px;
+}
+
+.settlements h4 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.settlement-item {
+  background: white;
+  border: 1px solid #ecf0f1;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.settlement-text {
+  color: #2c3e50;
+  font-size: 14px;
+}

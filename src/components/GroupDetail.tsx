@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Group, Expense } from '../types';
 import ExpenseList from './ExpenseList';
 import AddExpenseModal from './AddExpenseModal';
+import BalanceSummary from './BalanceSummary';
 import './GroupDetail.css';
 
 interface GroupDetailProps {
@@ -65,6 +66,13 @@ const GroupDetail: React.FC<GroupDetailProps> = ({ group, onBack, onUpdateGroup 
         members={group.members}
         onAddExpense={handleAddExpense}
       />
+
+      {group.expenses.length > 0 && (
+        <BalanceSummary
+          members={group.members}
+          expenses={group.expenses}
+        />
+      )}
 
       <AddExpenseModal
         isOpen={showAddExpense}
